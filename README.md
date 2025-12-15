@@ -1,4 +1,4 @@
-# Brahmasifier: Deep Learning for Strong Gravitational Lens Classification
+## Brahmasifier: Deep Learning for Strong Gravitational Lens Classification
 
 **Author:** Kunal Batra 
 **Affiliation:** University of Heidelberg  
