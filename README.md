@@ -62,10 +62,6 @@ Brahmasifier/
 ├── train.py                # Training script with distributed training
 ├── predict.py              # Inference and ensemble prediction
 ├── requirements.txt        # Python dependencies
-├── docs/
-│   ├── Strong_Lens_Challenge_Data_Release.pdf
-│   └── sl.bib              # BibTeX references
-├── configs/                # Example configurations
 └── README.md
 ```
 
