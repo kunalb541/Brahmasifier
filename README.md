@@ -62,6 +62,7 @@ Brahmasifier/
 ├── train.py                # Training script with distributed training
 ├── predict.py              # Inference and ensemble prediction
 ├── requirements.txt        # Python dependencies
+├── docs/                 
 └── README.md
 ```
 
