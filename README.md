@@ -218,7 +218,6 @@ Challenge reference:
 - **LSST Strong Lensing Science Collaboration** for organizing the challenge
 - **SLSim team** for simulation pipeline development
 - **University of Heidelberg** for computational resources
-- **Max Planck Institute for Astronomy (MPIA)** for GPU cluster access
 
 ## License
 
@@ -233,7 +232,4 @@ GitHub: [@kunalb541](https://github.com/kunalb541)
 
 ## References
 
-See [sl.bib](docs/sl.bib) for complete bibliography including:
-- Strong lensing surveys (SuGOHI, HOLISMOKES)
-- Simulation pipelines (SLSim, SIMCT)
-- Machine learning methods for astronomy
+See [sl.bib](docs/sl.bib) for complete bibliography
