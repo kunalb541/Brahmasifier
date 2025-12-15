@@ -1,6 +1,6 @@
 # Brahmasifier: Deep Learning for Strong Gravitational Lens Classification
 
-**Author:** Kunal Batra (kunalb541)  
+**Author:** Kunal Batra 
 **Affiliation:** University of Heidelberg  
 **Challenge:** LSST Strong Lensing Data Challenge (2025)  
 **Performance:** 98.4% classification accuracy on validation set
