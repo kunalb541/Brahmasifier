@@ -190,16 +190,6 @@ With `--cache-ratio 1.0`, images are:
 | ViT + TTA | 0.998 | - |
 | Ensemble (3 models) | 0.999 | - |
 
-## Physical Interpretation
-
-The model learns morphological features characteristic of strong lenses:
-- **Einstein rings:** Circular/elliptical arcs around deflector
-- **Multiple images:** Spatially separated source components
-- **Radial alignment:** Source images aligned with deflector center
-- **Color gradients:** Lens (red) vs source (blue) color differences
-
-Feature visualization and saliency maps available in upcoming paper.
-
 ## Citation
 
 If you use this code, please cite:
