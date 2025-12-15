@@ -86,7 +86,25 @@ pip install -r requirements.txt
 ## Training
 
 ### Multi-GPU (DDP)
+
 ```bash
+salloc --partition=gpu_mi300 --nodes=1 --gres=gpu:4 --exclusive --time=72:00:00
+
+cd
+cd sl
+source sl_env/bin/activate
+
+tar -cf - data/ | pv | tar -xf - -C /tmp/
+
+export PYTHONWARNINGS="ignore"
+export PYTHONUNBUFFERED=1
+export OMP_NUM_THREADS=2
+export MKL_NUM_THREADS=2
+export HSA_FORCE_FINE_GRAIN_PCIE=1
+export GPU_MAX_HW_QUEUES=8
+export MASTER_ADDR=$(scontrol show hostnames $SLURM_NODELIST | head -n 1)
+export MASTER_PORT=29500
+
 srun -u --nodes=1 --ntasks-per-node=1 --gres=gpu:4 \
   torchrun \
     --nnodes=1 \
@@ -130,6 +148,16 @@ python predict.py \
   --run-dirs ./runs/convnext_tiny ./runs/vit_small \
   --test-root /path/to/test/data \
   --out-csv submission.csv
+
+RUN_DIRS="./runs/convnext_tiny" "./runs/convnext_base" "./runs/convnext_small"
+
+python -u predict.py \
+    --run-dirs $RUN_DIRS \
+    --test-root "./tmp/data/test_dataset" \
+    --batch-size 512 \
+    --num-workers 8 \
+    --out-csv "./recreated_probabilities.csv"
+
 ```
 
 **Ensemble strategy:** 
