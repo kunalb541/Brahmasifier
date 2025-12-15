@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 
 # --- Dynamic Import for t.py ---
 def import_train_script():
-    candidates = ["t.py", "strong-lens-mi300-train_infer.py", "train_v2.py"]
+    candidates = ["train.py"]
     for c in candidates:
         if Path(c).exists():
             spec = importlib.util.spec_from_file_location("train_module", c)
