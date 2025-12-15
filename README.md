@@ -59,13 +59,13 @@ The classifier uses a Vision Transformer (ViT) or ConvNeXt backbone adapted for 
 
 ```
 Brahmasifier/
-├── t.py                    # Training script with distributed training
+├── train.py                # Training script with distributed training
 ├── predict.py              # Inference and ensemble prediction
 ├── requirements.txt        # Python dependencies
 ├── docs/
 │   ├── Strong_Lens_Challenge_Data_Release.pdf
-│   └── sl.bib             # BibTeX references
-├── configs/               # Example configurations
+│   └── sl.bib              # BibTeX references
+├── configs/                # Example configurations
 └── README.md
 ```
 
@@ -88,37 +88,26 @@ pip install -r requirements.txt
 
 ## Training
 
-### Single GPU
-```bash
-python t.py \
-  --train-roots /path/to/lenses \
-  --train-roots-neg /path/to/non-lenses \
-  --model-name convnext_tiny \
-  --batch-size 256 \
-  --epochs 50 \
-  --lr 1e-4 \
-  --val-split 0.1 \
-  --cache-ratio 1.0
-```
-
 ### Multi-GPU (DDP)
 ```bash
-torchrun --nproc_per_node=4 t.py \
-  --train-roots /path/to/lenses \
-  --train-roots-neg /path/to/non-lenses \
-  --model-name convnext_tiny \
-  --batch-size 256 \
-  --epochs 50
-```
-
-### Multi-Node (HPC)
-```bash
-torchrun \
-  --nnodes=2 \
-  --nproc_per_node=4 \
-  --rdzv_backend=c10d \
-  --rdzv_endpoint=$MASTER_ADDR:$MASTER_PORT \
-  t.py --train-roots /path/to/lenses --train-roots-neg /path/to/non-lenses
+srun -u --nodes=1 --ntasks-per-node=1 --gres=gpu:4 \
+  torchrun \
+    --nnodes=1 \
+    --nproc-per-node=4 \
+    --rdzv-backend=c10d \
+    --rdzv-endpoint="${MASTER_ADDR}:${MASTER_PORT}" \
+    --rdzv-id="train_$(date +%s)" \
+    t.py \
+      --mode train \
+      --model-name convnext_base \
+      --train-roots "/tmp/data/hsc_lenses" "/tmp/data/slsim_lenses" \
+      --train-roots-neg "/tmp/data/hsc_nonlenses" "/tmp/data/slsim_nonlenses" \
+      --index-cache "/tmp/index.pkl" \
+      --val-split 0.20 \
+      --epochs 100 \
+      --batch-size 512 \
+      --num-workers 4 \
+      --cache-ratio 1 
 ```
 
 **Key hyperparameters:**
