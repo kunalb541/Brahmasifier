@@ -254,7 +254,7 @@ MIT License - see LICENSE file for details
 
 ## Contact
 
-Kunal Batra  
+Kunal Bhatia  
 Master's Student, Physics  
 University of Heidelberg  
 GitHub: [@kunalb541](https://github.com/kunalb541)
