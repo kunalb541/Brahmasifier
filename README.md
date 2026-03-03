@@ -2,7 +2,6 @@
 
 **Author:** Kunal Bhatia
 
-**Affiliation:** University of Heidelberg  
 **Challenge:** LSST Strong Lensing Data Challenge (2025)  
 **Performance:** 98.4% classification accuracy on validation set
 
@@ -230,17 +229,7 @@ If you use this code, please cite:
   publisher = {GitHub},
   url = {https://github.com/kunalb541/Brahmasifier}
 }
-```
 
-Challenge reference:
-```bibtex
-@misc{lsst_challenge_2025,
-  title = {Strong Lens Challenge Data Release},
-  author = {{LSST Strong Lensing Science Collaboration}},
-  year = {2025},
-  note = {Strong Lensing Data Challenge}
-}
-```
 
 ## Acknowledgments
 
@@ -251,13 +240,6 @@ Challenge reference:
 ## License
 
 MIT License - see LICENSE file for details
-
-## Contact
-
-Kunal Bhatia  
-Master's Student, Physics  
-University of Heidelberg  
-GitHub: [@kunalb541](https://github.com/kunalb541)
 
 ## References
 
