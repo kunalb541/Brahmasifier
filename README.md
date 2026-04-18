@@ -44,16 +44,6 @@ The classifier uses a Vision Transformer (ViT) or ConvNeXt backbone adapted for 
 - Precision: Mixed FP16
 - Validation: Stratified 10% split
 
-## Performance
-
-| Metric | Validation Set | Test Set |
-|--------|---------------|----------|
-| Accuracy | 98.4% | 98.2% |
-| AUC-ROC | 0.997 | 0.996 |
-| Precision | 98.1% | - |
-| Recall | 98.7% | - |
-
-**Inference speed:** ~500 images/second on NVIDIA A100 (batch size 512)
 
 ## Repository Structure
 
@@ -207,16 +197,6 @@ With `--cache-ratio 1.0`, images are:
 - Synchronization: All-reduce for gradients and metrics
 - Index cache: Rank 0 builds index, others wait via file lock
 - Data cache: Each rank loads its assigned subset
-
-## Ablation Studies
-
-| Configuration | Val AUC | Training Time |
-|--------------|---------|---------------|
-| ConvNeXt-Tiny (41×41) | 0.995 | 2.5h (4×A100) |
-| ViT-Small (224×224) | 0.997 | 6.1h (4×A100) |
-| ConvNeXt + TTA | 0.996 | - |
-| ViT + TTA | 0.998 | - |
-| Ensemble (3 models) | 0.999 | - |
 
 ## Citation
 
