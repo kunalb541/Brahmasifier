@@ -202,7 +202,7 @@ With `--cache-ratio 1.0`, images are:
 
 If you use this code, please cite:
 ```bibtex
-@misc{batra2025brahmasifier,
+@misc{bhatia2025brahmasifier,
   author = {Bhatia, Kunal},
   title = {Brahmasifier: Deep Learning for Strong Gravitational Lens Classification},
   year = {2025},
